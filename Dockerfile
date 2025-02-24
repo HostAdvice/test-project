@@ -22,6 +22,12 @@ WORKDIR /var/www/html
 COPY composer.json ./
 RUN composer install --ignore-platform-reqs
 
+# Install yarn
+RUN npm install -g yarn
+
+# Copy package.json and yarn.lock
+COPY package.json yarn.lock webpack.config.js ./
+
 # Copy startup script
 COPY docker-entrypoint-custom.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/docker-entrypoint-custom.sh

@@ -13,7 +13,7 @@ Before getting started, ensure you have the following installed:
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/hostadvice/test-project.git
+git clone https://github.com/HostAdvice/test-project.git
 cd test-project
 ```
 

@@ -30,7 +30,7 @@ if [ -n "$WORDPRESS_THEME" ]; then
     wp theme activate --allow-root "$WORDPRESS_THEME"
 fi
 
-# Run migrations and seeds
+# Run migrations
 if [ -f "/var/www/html/wp-content/themes/vpn-providers/scripts/migrate.php" ]; then
     php /var/www/html/wp-content/themes/vpn-providers/scripts/migrate.php
 fi
@@ -38,6 +38,10 @@ fi
 # Resave permalinks
 echo "Resaving permalinks..."
 wp rewrite structure '/%postname%/' --allow-root
+
+# Build assets
+echo "Building assets..."
+yarn install && yarn build
 
 # Keep container running
 wait $WP_PID
