@@ -1,5 +1,6 @@
 <?php
-function seed_providers() {
+function seed_providers()
+{
     global $wpdb;
     $table_name = $wpdb->prefix . 'vpn_providers';
 
@@ -21,6 +22,12 @@ function seed_providers() {
             'description' => 'ExpressVPN offers high-speed connections...'
         ]
     ];
+
+    // if provider table is not empty, do not seed
+    $results = $wpdb->get_results("SELECT * FROM $table_name");
+    if (!empty($results)) {
+        return;
+    }
 
     foreach ($providers as $provider) {
         $wpdb->insert($table_name, $provider);

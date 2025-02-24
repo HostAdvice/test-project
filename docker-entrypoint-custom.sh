@@ -35,5 +35,9 @@ if [ -f "/var/www/html/wp-content/themes/vpn-providers/scripts/migrate.php" ]; t
     php /var/www/html/wp-content/themes/vpn-providers/scripts/migrate.php
 fi
 
+# Resave permalinks
+echo "Resaving permalinks..."
+wp rewrite structure '/%postname%/' --allow-root
+
 # Keep container running
 wait $WP_PID

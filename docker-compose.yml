@@ -3,7 +3,6 @@ services:
     build: .
     ports:
       - "8080:80"
-    restart: always
     environment:
       WORDPRESS_DB_HOST: db
       WORDPRESS_DB_USER: wordpress
@@ -17,8 +16,7 @@ services:
       WORDPRESS_ADMIN_EMAIL: admin@example.com
       WORDPRESS_THEME: "vpn-providers"
     volumes:
-      - ./wp-content/themes:/var/www/html/wp-content/themes
-      - ./wp-content/plugins:/var/www/html/wp-content/plugins
+      - ./wp-content/themes/vpn-providers:/var/www/html/wp-content/themes/vpn-providers
       - ./migrations:/var/www/html/migrations
     depends_on:
       - db

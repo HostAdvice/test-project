@@ -7,3 +7,5 @@
 ehthumbs.db
 Thumbs.db
 .idea
+node_modules
+wp-content/themes/vpn-providers/dist

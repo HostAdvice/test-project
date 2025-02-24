@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <title>VPN Providers</title>
-    <link rel="stylesheet" href="{{ function('get_stylesheet_uri') }}">
+    <link rel="stylesheet" href="{{ "main.css" | dist }}">
 </head>
 <body>
-<header>
+<header id="header">
     <nav>
         <a href="/">Home</a>
     </nav>
@@ -13,5 +13,10 @@
 <main>
     {% block content %}{% endblock %}
 </main>
+<footer id="footer">
+    <p>&copy; VPN Providers</p>
+</footer>
+
+<script src="{{ "main.js" | dist }}"></script>
 </body>
 </html>

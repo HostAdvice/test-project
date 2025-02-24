@@ -26,10 +26,5 @@ RUN composer install --ignore-platform-reqs
 COPY docker-entrypoint-custom.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/docker-entrypoint-custom.sh
 
-# Remove default themes, plugins
-#RUN rm -rf wp-content/themes/*/
-#RUN rm -rf wp-content/plugins/*/
-#RUN rm wp-content/plugins/hello.php
-
 ENTRYPOINT ["docker-entrypoint-custom.sh"]
 CMD ["apache2-foreground"]

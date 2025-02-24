@@ -5,13 +5,13 @@ module.exports = {
     mode: process.env.NODE_ENV || 'development',
     entry: {
         main: [
-            './assets/js/main.js',
-            './assets/scss/style.scss'
+            path.resolve(__dirname, 'wp-content/themes/vpn-providers/assets/js/main.js'),
+            path.resolve(__dirname, 'wp-content/themes/vpn-providers/assets/scss/main.scss')
         ]
     },
     output: {
         filename: '[name].js',
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, 'wp-content/themes/vpn-providers/dist'),
         publicPath: '/wp-content/themes/vpn-providers/dist/'
     },
     module: {
