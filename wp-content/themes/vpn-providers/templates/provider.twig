@@ -1,0 +1,15 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    <div class="provider-details">
+        <h1>{{ provider.name }}</h1>
+        <div class="provider-meta">
+            <p>Price: ${{ provider.price }}/mo</p>
+            <p>Locations: {{ provider.locations }}</p>
+            <p>Rating: {{ provider.rating }}/5</p>
+        </div>
+        <div class="provider-description">
+            {{ provider.description|raw }}
+        </div>
+    </div>
+{% endblock %}

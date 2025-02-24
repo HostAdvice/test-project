@@ -1,0 +1,30 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    <div class="providers-table">
+        <table>
+            <thead>
+            <tr>
+                <th>Provider</th>
+                <th>Price</th>
+                <th>Locations</th>
+                <th>Rating</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for provider in providers %}
+                <tr>
+                    <td>
+                        <a href="/provider/{{ provider.slug }}">
+                            {{ provider.name }}
+                        </a>
+                    </td>
+                    <td>${{ provider.price }}/mo</td>
+                    <td>{{ provider.locations }}</td>
+                    <td>{{ provider.rating }}/5</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

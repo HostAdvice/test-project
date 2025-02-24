@@ -1,0 +1,32 @@
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+
+.providers-table {
+  margin: 2rem 0;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th, td {
+      padding: 1rem;
+      border: 1px solid #ddd;
+    }
+
+    th {
+      background: $primary-color;
+      color: white;
+    }
+  }
+}
+
+.provider-details {
+  max-width: 800px;
+  margin: 2rem auto;
+
+  .provider-meta {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 4px;
+  }
+}
