@@ -29,8 +29,8 @@ RUN npm install -g yarn
 COPY package.json yarn.lock webpack.config.js ./
 
 # Copy startup script
-COPY docker-entrypoint-custom.sh /usr/local/bin/
-RUN chmod +x /usr/local/bin/docker-entrypoint-custom.sh
+COPY docker-entrypoint-custom.sh /usr/local/bin/docker-entrypoint-custom.sh
+RUN ["chmod", "+x", "/usr/local/bin/docker-entrypoint-custom.sh"]
 
-ENTRYPOINT ["docker-entrypoint-custom.sh"]
+ENTRYPOINT ["sh", "/usr/local/bin/docker-entrypoint-custom.sh"]
 CMD ["apache2-foreground"]
