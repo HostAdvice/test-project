@@ -5,6 +5,9 @@ set -e
 exec docker-entrypoint.sh "$@" &
 WP_PID=$!
 
+# Wait for the WordPress container to start
+sleep 10
+
 # Wait for MySQL to be ready
 until mysql -h"$WORDPRESS_DB_HOST" -u"$WORDPRESS_DB_USER" -p"$WORDPRESS_DB_PASSWORD" &> /dev/null
 do

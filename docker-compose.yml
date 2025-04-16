@@ -1,6 +1,21 @@
 services:
+  db:
+    image: mysql:8.0
+    container_name: wordpress_db
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - db_data:/var/lib/mysql
+
   wordpress:
     build: .
+    restart: always
     ports:
       - "8080:80"
     environment:
@@ -21,18 +36,6 @@ services:
     depends_on:
       - db
       - redis
-
-  db:
-    image: mysql:8.0
-    ports:
-      - "3306:3306"
-    environment:
-      MYSQL_DATABASE: wordpress
-      MYSQL_USER: wordpress
-      MYSQL_PASSWORD: wordpress
-      MYSQL_ROOT_PASSWORD: root
-    volumes:
-      - db_data:/var/lib/mysql
 
   redis:
     image: redis:alpine
