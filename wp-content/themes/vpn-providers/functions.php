@@ -13,7 +13,7 @@ function init_twig()
     $twig = new Environment($loader);
 
     $twig->addFilter(new TwigFilter('dist', function ($relative_path) {
-        return get_template_directory_uri() . "/dist/" . $relative_path;
+        return "/wp-content/themes/vpn-providers/dist/" . $relative_path;
     }));
 
     return $twig;
